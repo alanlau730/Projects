@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 //simple fibonacci number program with dynamic programming
+//will add timing shortly comparing dynamic vs non-dynamic
 
 public class Fibonacci {
 	private long []array;
@@ -21,13 +22,27 @@ public class Fibonacci {
 	}
 	
 	private long Helper(int n){//will clean up code
+	  if (n == 1 || n == 2)
+		  //array[n-1] = 1; //caching
+		  return 1;
 	  
-		if (n < 1)
-			return 0;		
-		if (n == 1) // base case
-			return 1;
-		else
-			return Helper(n-1) + Helper(n-2);
+	  else{
+		  long helpOne;
+		  long helpTwo;
+		  
+		  if(array[n-2] != -1)//see if value is already cached or not
+			  helpOne = array[n-2];
+		  else
+			  helpOne = Helper(n-1);
+		  
+		  if(array[n-3]!=-1)
+			  helpTwo = array[n-3];
+		  else
+			  helpTwo = Helper(n-2);
+		  
+		  return helpOne+helpTwo;
+	  	}
+			
 	}
 	
 	public static void main(String[]args){
