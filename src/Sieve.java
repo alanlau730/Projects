@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 
@@ -27,19 +27,20 @@ public class Sieve {//n will be always 10 million for the sake of my sanity.
 	}
 	
 	private void computePrimes(){
-		long currentIndex = 0;
+	
 		long currentPrime = 2;
 		primeList = new ArrayList<Long>();//start with 2 in the arraylist
-		primeList.add(currentPrime);
+		
 		
 	  while (currentPrime <= n){//until we reach the end 
+		  primeList.add(currentPrime);
 		for(long i = currentPrime;i<n;i+=currentPrime){//eliminate composite numbers
 			if(booleanArray[(int) (i-2)] == STATUS.UNKNOWN){
 				booleanArray[(int)(i-2)] = STATUS.COMPOSITE;
 			}				
 		
 		}
-		while(booleanArray[(int) (currentPrime-2)]!=STATUS.UNKNOWN)
+		while(booleanArray[(int) (currentPrime-2)]!=STATUS.UNKNOWN && currentPrime <= n)
 			++currentPrime;//stop when we find the next Currentprime
 	  }
 		
