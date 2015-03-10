@@ -5,3 +5,5 @@ Following project ideas were found from karan's list at https://github.com/karan
 Thanks!
 
 -Fibonacci Sequence
+-Factorial Finder
+-Sieve of Eratosthenes
