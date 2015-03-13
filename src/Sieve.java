@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 
-public class Sieve {//n will be always 10 million for the sake of my sanity.
+public class Sieve {//currently handles up to around 7000.
 	private ArrayList<Long> primeList;
 	private long[]numArray;
 	private STATUS[]booleanArray;
@@ -16,7 +16,7 @@ public class Sieve {//n will be always 10 million for the sake of my sanity.
 	
 	public Sieve(long n){
 		this.n = n;
-		numArray = new long[(int)n];//dangerous casting
+		numArray = new long[(int)n];
 		booleanArray = new STATUS[(int)n];
 		
 
@@ -57,7 +57,7 @@ public class Sieve {//n will be always 10 million for the sake of my sanity.
 	
 	public static void main(String[]args){
 		Scanner scan = new Scanner(System.in);
-		System.out.println("We will calculate all the prime numbers up to : ");
+		System.out.println("We will calculate all the prime numbers up to (excluding) : ");
 		long limit = scan.nextLong();
 		Sieve s = new Sieve(limit);
 		s.printPrimes();
